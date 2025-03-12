@@ -8,7 +8,7 @@ public class Libro {
 		this.titulo=titulo;
 		this.autor=autor;
 		this.numPag=numPag;
-		this.calificacion=calificacion;
+		this.calificacion=0;
 		
 	}
 	public void setCalificacion(double calificacion) {

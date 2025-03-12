@@ -15,5 +15,10 @@ public class Telefono {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	@Override
+	public String toString() {
+		return "Telefono [numero=" + numero + "]";
+	}
 	
 }
