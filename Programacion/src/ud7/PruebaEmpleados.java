@@ -13,50 +13,30 @@ public class PruebaEmpleados {
 		int opcion = 0;
 		do {
 			muestraMenu();
+
 			switch (opcion) {
 			case 1:
-				if (cont<empleados.length) {
-					empleados[cont] = pideDatosDeEmpleadoPorComision();
-					cont++;
-				}
+
+				empleados[cont] = pideDatosDeEmpleadoPorComision();
+				cont++;
 				break;
 			case 2:
-				if (cont<empleados.length) {
-					empleados[cont] = pideDatosDeEmpleadoBaseMasComision();
-					cont++;
-				}
+				empleados[cont] = pideDatosDeEmpleadoBaseMasComision();
+				cont++;
+
 				break;
 			case 3:
+				for(int i=0; i<cont; i++) {
+					System.out.println(empleados[i]);
+				}
+			case 4:
 				System.out.println("Saliste");
 				break;
 			default:
 				System.out.println("Opcion incorrecta");
 			}
-		} while (opcion != 3);
 
-		muestraMenu();
-
-		switch (opcion) {
-		case 1:
-
-			empleados[cont] = pideDatosDeEmpleadoPorComision();
-			cont++;
-			break;
-		case 2:
-			empleados[cont] = pideDatosDeEmpleadoBaseMasComision();
-			cont++;
-
-			break;
-		case 3:
-			for(int i=0; i<cont; i++) {
-				System.out.println(empleados[i]);
-			}
-		case 4:
-			System.out.println("Saliste");
-			break;
-		default:
-			System.out.println("Opcion incorrecta");
-		}
+		} while (opcion != 4);
 
 	}
 

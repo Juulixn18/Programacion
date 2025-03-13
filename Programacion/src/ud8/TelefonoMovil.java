@@ -1,6 +1,6 @@
 package ud8;
 
-public class TelefonoMovil extends Telefono{
+public class TelefonoMovil extends Telefono implements Comunicador{
 	
 	private String modelo;
 	

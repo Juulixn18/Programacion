@@ -23,5 +23,8 @@ public class Telegrafo extends Reliquia{
 	public String toString() {
 		return super.toString()+"Telegrafo [codigo=" + codigo + "]";
 	}
+	public void enviaMensaje(String mensaje) {
+		System.out.println("Soy un telegrafo "+getCodigo()+" y el mensaje es "+Comunicador.CTE);
+	}
 	
 }

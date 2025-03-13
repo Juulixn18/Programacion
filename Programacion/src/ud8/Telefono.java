@@ -21,4 +21,7 @@ public class Telefono {
 		return "Telefono [numero=" + numero + "]";
 	}
 	
+	public void enviaMensaje(String mensaje) {
+		System.out.println("Mi telefono es "+getNumero()+" y el mensaje es "+Comunicador.CTE);
+	}
 }
