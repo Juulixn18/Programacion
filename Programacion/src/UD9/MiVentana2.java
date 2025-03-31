@@ -54,7 +54,7 @@ public class MiVentana2 extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		// El cuerpo del metodo es la respuesta ante el evento de un click
-		int suma = campo1.getint();
+		String nombre = campo.getText();
 		etSaludo.setText("Hola " + nombre);
 
 	}
