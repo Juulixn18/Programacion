@@ -29,6 +29,7 @@ public class MiVentana2 extends JFrame implements ActionListener{
 
 	public void construirPanel() {
 
+
 		panel = new JPanel();
 
 		et1 = new JLabel("Primer Numero");
@@ -54,8 +55,14 @@ public class MiVentana2 extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		// El cuerpo del metodo es la respuesta ante el evento de un click
-		String nombre = campo.getText();
-		etSaludo.setText("Hola " + nombre);
+		
+		int suma=campo1.getText(ALLBITS, ABORT);
+		
+		
+		
+		
+//		String nombre = campo.getText();
+//		etSaludo.setText("Hola " + nombre);
 
 	}
 
