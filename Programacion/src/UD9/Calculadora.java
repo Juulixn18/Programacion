@@ -8,15 +8,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class Calculadora extends JFrame implements ActionListener {
 
 	Scanner in = new Scanner(System.in);
-
+	private int n1, n2;
 	private JPanel panel;
 	private JButton suma, resta, division, multiplicacion;
-	private JTextField op1, op2, result;
+	private JTextField  result;
+	private JTextArea op1, op2;
 	private JLabel et;
 
 	public Calculadora() {
@@ -36,12 +38,12 @@ public class Calculadora extends JFrame implements ActionListener {
 
 		et = new JLabel("N1:");
 		panel.add(et);
-		op1 = new JTextField(in.nextLine());
+		op1 = new JTextArea(in.nextLine());
 		panel.add(op1);
 		
 		et = new JLabel("N2:");
 		panel.add(et);
-		op2 = new JTextField(in.nextLine());
+		op2 = new JTextArea(in.nextLine());
 		panel.add(op2);
 		
 		et = new JLabel("Resultado:");
@@ -67,17 +69,26 @@ public class Calculadora extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
 		if (e.getSource() == suma) {
-			result.setText(op1 + op2);
+			n1=op1;
+			n2=op2;
+			result.setText(" "+(n1+n2));
 		}
 		if (e.getSource() == resta) {
-			result.setText(op1 - op2);
+			n1=op1;
+			n2=op2;
+			result.setText(" "+ (n1-n2));
 		}
 		if (e.getSource() == multiplicacion) {
-			result.setText(op1 * op2);
+			n1=op1;
+			n2=op2;
+			result.setText(" "+ (n1*n2));
 		}
 		if (e.getSource() == division) {
-			result.setText(op1 / op2);
+			n1=op1;
+			n2=op2;
+			result.setText(" "+ (n1/n2));
 		}
 	}
 
