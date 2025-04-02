@@ -11,15 +11,21 @@ import javax.swing.JPanel;
 
 public class Adivino extends JFrame implements ActionListener{
 	
-	private Random random;
+
 	private JPanel panel;
-	private JButton btn1, btn2, btn3;
-	private JLabel nintentos, numero;
+	private JButton mayor, menor, acertar;
+	private JLabel et1;
+	private boolean ganar;
+	private int min, max, numGenerado;
 	
 	
 	public Adivino() {
 		super("Adivina numero");
+		min=1; 
+		max=100;
+		
 		this.setBounds(100, 100, 300, 300);
+		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		constuirPanel();
 		
@@ -28,23 +34,23 @@ public class Adivino extends JFrame implements ActionListener{
 	}
 	
 	private void constuirPanel() {
+		
 		panel= new JPanel();
-		random =new Random();
-		btn1=new JButton("Mayor");
-		btn1.addActionListener(this);
-		btn2=new JButton("Menor");
-		btn2.addActionListener(this);
-		btn3=new JButton("Acertaste");
-		btn3.addActionListener(this);
+		et1=new JLabel();
 		
-		nintentos=new JLabel("");
-		numero=new JLabel(random.nextInt(100));
+		numGenerado=generaNumero();
+		et1.setText("Creo que el numero es: "+numGenerado);
+		panel.add(et1);
 		
+		mayor=new JButton("Mayor");
+		mayor.addActionListener(this);
 		
+		panel.add(mayor);
 		
-		panel.add(btn1);
-		panel.add(btn2);
-		panel.add(btn3);
+		menor=new JButton("Menor");
+		menor.addActionListener(this);
+		panel.add(menor);
+		
 		this.add(panel);
 		
 	}
@@ -55,16 +61,27 @@ public class Adivino extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		if (e.getSource()==btn1) {
-			et1.setText(et1+" ");
+		if (e.getSource()==acertar) {
+			et1.setText("Has acertado");
+			menor.setEnabled(false);
+			mayor.setEnabled(false);
+			acertar.setText("Empezar");
 		}
-		if (e.getSource()==btn2) {
-			et2.setText(et2+" ");
+		if (e.getSource()==menor) {
+			max=numGenerado;
+			numGenerado=generaNumero();
+			et1.setText("Creo que el numero es: "+numGenerado);
 		}
-		if (e.getSource()==btn3) {
-			et3.setText(et3+" ");
+		if (e.getSource()==mayor) {
+			min=numGenerado;
+			numGenerado=generaNumero();
+			et1.setText("Creo que el numero es: "+numGenerado);
 		}
 		
+	}
+	
+	private int generaNumero() {
+		return (max-min)/2+min;
 	}
 	
 }
