@@ -2,7 +2,6 @@ package UD9;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,18 +12,17 @@ import javax.swing.JTextField;
 
 public class Calculadora extends JFrame implements ActionListener {
 
-	Scanner in = new Scanner(System.in);
-	private int n1, n2;
+	private double n1, n2;
 	private JPanel panel;
 	private JButton suma, resta, division, multiplicacion;
-	private JTextField  result;
+	private JTextField result;
 	private JTextArea op1, op2;
 	private JLabel et;
 
 	public Calculadora() {
 		super("Elige una operacion con dos numeros que desees");
 
-		this.setBounds(100, 100, 300, 300);
+		this.setBounds(0, 0, 300, 300);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		constuirPanel();
@@ -38,12 +36,12 @@ public class Calculadora extends JFrame implements ActionListener {
 
 		et = new JLabel("N1:");
 		panel.add(et);
-		op1 = new JTextArea(in.nextLine());
+		op1 = new JTextArea(0,3);
 		panel.add(op1);
 		
 		et = new JLabel("N2:");
 		panel.add(et);
-		op2 = new JTextArea(in.nextLine());
+		op2 = new JTextArea(0,3);
 		panel.add(op2);
 		
 		et = new JLabel("Resultado:");
@@ -64,31 +62,35 @@ public class Calculadora extends JFrame implements ActionListener {
 		panel.add(division);
 
 		this.add(panel);
-
+		
+		resta.addActionListener(this);
+		suma.addActionListener(this);
+		division.addActionListener(this);
+		multiplicacion.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
 		if (e.getSource() == suma) {
-			n1=op1;
-			n2=op2;
-			result.setText(" "+(n1+n2));
+			n1=Double.parseDouble(op1.getText());
+			n2=Double.parseDouble(op2.getText());
+			result.setText(""+(n1+n2));
 		}
 		if (e.getSource() == resta) {
-			n1=op1;
-			n2=op2;
-			result.setText(" "+ (n1-n2));
+			n1=Double.parseDouble(op1.getText());
+			n2=Double.parseDouble(op2.getText());
+			result.setText(""+(n1-n2));
 		}
 		if (e.getSource() == multiplicacion) {
-			n1=op1;
-			n2=op2;
-			result.setText(" "+ (n1*n2));
+			n1=Double.parseDouble(op1.getText());
+			n2=Double.parseDouble(op2.getText());
+			result.setText(""+(n1*n2));
 		}
 		if (e.getSource() == division) {
-			n1=op1;
-			n2=op2;
-			result.setText(" "+ (n1/n2));
+			n1=Double.parseDouble(op1.getText());
+			n2=Double.parseDouble(op2.getText());
+			result.setText(""+(n1/n2));
 		}
 	}
 
